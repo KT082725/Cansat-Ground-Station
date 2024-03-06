@@ -13,7 +13,7 @@ jobs:
           python-version: '3.10'  
 
       - name: Install Dependencies
-        run: ls ${{ github.workspace }}/
+        run: ls 
         shell: bash
 
       - name: Run the main python file
