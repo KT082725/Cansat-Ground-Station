@@ -1,15 +1,19 @@
-import "./App.css";
-import SerialDataReader from "./components/SerialDataReader";
-import Rocketmodel from "./components/Rocketmodel";
-
-function App() {
+// App.jsx
+import React from 'react';
+import ParentComponent from './components/ParentComponent';
+import SerialDataReader from './components/SerialDataReader';
+// import TelemetryDisplay from './components/TelemetryDisplay';
+const App = () => {
   return (
-    <>
-        <SerialDataReader />
-        <></>
-        <Rocketmodel/>
+    <><div>
+      <SerialDataReader/>
+    </div>
+    <div className="App">
+      <ParentComponent />
+    </div>
     </>
+    // <TelemetryDisplay/>
   );
-}
+};
 
 export default App;
