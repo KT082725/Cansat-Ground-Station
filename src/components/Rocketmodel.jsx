@@ -3,8 +3,8 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
 import { MeshStandardMaterial, Euler } from 'three';
 
-const Rocketmodel = ({ orientation }) => {
-  const { scene } = useGLTF('rocket.gltf');
+const Rocketmodel = () => {
+  const earth = useGLTF('rocket.gltf');
 
   const material = new MeshStandardMaterial({ color: 0xff0000 });
 
