@@ -1,72 +1,20 @@
-import React, { useRef, useEffect } from 'react';
-import * as THREE from 'three';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, useGLTF } from '@react-three/drei';
+import { MeshStandardMaterial } from 'three';
 
-const RotatingCube = ({ transparentBackground }) => {
-  const containerRef = useRef();
+const Rocketmodel = () => {
+  const earth = useGLTF('src/assets/rocket.gltf');
 
-  useEffect(() => {
-    // Create a scene
-    const scene = new THREE.Scene();
-
-    // Create a camera
-    const aspectRatio = 1; // Aspect ratio of the viewport
-    const camera = new THREE.PerspectiveCamera(75, aspectRatio, 0.1, 1000);
-    camera.position.z = 5;
-
-    // Create a renderer
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(containerRef.current.clientWidth, containerRef.current.clientHeight);
-    containerRef.current.appendChild(renderer.domElement);
-
-    // Create a cube geometry
-    const geometry = new THREE.BoxGeometry();
-    // Create a material
-    const material = transparentBackground
-      ? new THREE.MeshBasicMaterial({ color: 0x00ff00, transparent: true, opacity: 0.5 })
-      : new THREE.MeshBasicMaterial({ color: 0xffffff });
-    // Create a mesh
-    const cube = new THREE.Mesh(geometry, material);
-    // Add the mesh to the scene
-    scene.add(cube);
-
-    // Function to adjust camera and render scene
-    const animate = () => {
-      requestAnimationFrame(animate);
-
-      // Rotate the cube
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
-
-      // Adjust camera aspect ratio to match container dimensions
-      const width = containerRef.current.clientWidth;
-      const height = containerRef.current.clientHeight;
-      camera.aspect = width / height;
-      camera.updateProjectionMatrix();
-
-      // Render the scene
-      renderer.setSize(width, height);
-      renderer.render(scene, camera);
-    };
-
-    animate();
-
-    // Cleanup function
-    return () => {
-      // Remove the renderer dom element
-      containerRef.current.removeChild(renderer.domElement);
-    };
-  }, [transparentBackground]);
+  const material = new MeshStandardMaterial({ color: 0xff0000 });
 
   return (
-    <div
-      ref={containerRef}
-      style={{
-        border: '2px solid black', // Add a border around the component
-        width: '300px', // Set the width of the component
-        height: '300px', // Set the height of the component
-      }}
-    />
+    <div style={{ width: '100vw', height: '100vh' }}>
+      <Canvas className="cursor-pointer" frameloop="demand" camera={{ position: [0, 0, 10], fov: 45 }}>
+        <OrbitControls autoRotate enableZoom={true} enablePan={true} />
+        <primitive object={earth.scene} scale={[0.01, 0.01, 0.01]} material={material} />
+      </Canvas>
+    </div>
   );
 };
 
-export default RotatingCube;
+export default Rocketmodel;

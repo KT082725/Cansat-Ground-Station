@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-three/drei": "^9.102.6",
+    "@react-three/fiber": "^8.16.0",
     "chart.js": "^3.7.0",
     "d3": "^7.9.0",
     "plotly.js": "^2.30.1",
