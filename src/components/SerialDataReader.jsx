@@ -112,8 +112,8 @@ const SerialDataReader = () => {
     <div>
       <button onClick={connectToSerial}>Connect to Serial Port</button>
       {error && <div>Error: {error}</div>}
-      <h2>GAGAN</h2>
-      <svg ref={svgRef} width={720} height={440}></svg>
+      <h2>Serial Data Line Chart</h2>
+      <svg ref={svgRef} width={440} height={440}></svg>
     </div>
   );
 };

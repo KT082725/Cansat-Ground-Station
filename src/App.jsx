@@ -1,20 +1,24 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-import './App.css'
-import SerialDataReader from './components/SerialDataReader'
-import RotatingCube from './components/Rocketmodel'
+import "./App.css";
+import SerialDataReader from "./components/SerialDataReader";
+import RotatingCube from "./components/Rocketmodel";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
-      <SerialDataReader/>
-      <h1>Rotating Cube</h1>
-      <RotatingCube transparentBackground />
-
+      <div style={{ display: "flex" }}>
+        <SerialDataReader />
+        <div style={{ marginLeft: "20px" }}>
+          {" "}
+          {/* Adjust margin as needed */}
+          <RotatingCube transparentBackground />
+        </div>
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
