@@ -3,7 +3,7 @@ import { OrbitControls, useGLTF } from '@react-three/drei';
 import { MeshStandardMaterial } from 'three';
 
 const Rocketmodel = () => {
-  const earth = useGLTF('src/assets/rocket.gltf');
+  const earth = useGLTF('rocket.gltf');
 
   const material = new MeshStandardMaterial({ color: 0xff0000 });
 
