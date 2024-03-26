@@ -1,18 +1,21 @@
-// App.jsx
-import React from 'react';
-import ParentComponent from './components/ParentComponent';
-import SerialDataReader from './components/SerialDataReader';
-// import TelemetryDisplay from './components/TelemetryDisplay';
+import "./App.css";
+import React, {useState} from "react";
+import SerialDataReader from "./components/Serial/SerialDataReader";
+import GraphComponent from "./components/GrpahComponent";
+import ParentComponent from "./components/ParentComponent";
+import Navbar from "./components/Navbar/Navbar";
+
 const App = () => {
+  const [receivedData, setReceivedData] = useState([]);
+
+  const onDataReceived = (data) => {
+    setReceivedData((prevData) => [...prevData, data]);
+  };
   return (
-    <><div>
-      <SerialDataReader/>
-    </div>
-    <div className="App">
-      <ParentComponent />
-    </div>
+    <>
+      <Navbar />
+      {/* <SerialDataReader onDataReceived={onDataReceived} /> */}
     </>
-    // <TelemetryDisplay/>
   );
 };
 

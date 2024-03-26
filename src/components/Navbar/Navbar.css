@@ -1,0 +1,10 @@
+/* Navbar.css */
+.Container {
+    background-color: #552a2a;
+    color: white;
+    padding: 10px;
+    width: 100vw;
+    display: flex;
+    z-index: 999;
+  }
+  
