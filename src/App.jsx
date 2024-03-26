@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import './App.css'
-import SerialDataReader from '../components/SerialDataReader'
+import SerialDataReader from './components/SerialDataReader'
 function App() {
   const [count, setCount] = useState(0)
 
