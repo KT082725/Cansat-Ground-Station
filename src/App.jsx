@@ -5,14 +5,9 @@ import ParentComponent from "./components/ParentComponent";
 import Navbar from "./components/Navbar/Navbar";
 
 const App = () => {
-  const [receivedData, setReceivedData] = useState([]);
-
-  const onDataReceived = (data) => {
-    setReceivedData((prevData) => [...prevData, data]);
-  };
   return (
     <>
-      <Navbar />
+      <Navbar/>
     </>
   );
 };
