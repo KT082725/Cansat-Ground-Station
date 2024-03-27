@@ -1,10 +1,26 @@
 /* Navbar.css */
 .Container {
-    background-color: #552a2a;
-    color: white;
-    padding: 10px;
-    width: 100vw;
-    display: flex;
-    z-index: 999;
-  }
-  
+  background-color: #747ce6;
+  color: white;
+  padding: 10px;
+  width: 100vw;
+  position: fixed;
+  justify-content: flex-end;
+  place-items: center;
+  top: 0;
+  display: flex;
+}
+
+.button-container{
+  margin-right: 15px;
+}
+
+.baud-container{
+  margin-right: 15px;
+}
+
+select {
+  border-radius: 8px; /* Rounded corners */
+  padding: 8px; /* Adjust padding as needed */
+  color: rgb(0, 0, 0); /* Example text color */
+}
