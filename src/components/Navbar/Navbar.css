@@ -1,4 +1,4 @@
-/* Navbar.css */
+/* Navbar.css
 .Container {
   background-color: #747ce6;
   color: white;
@@ -20,7 +20,6 @@
 }
 
 select {
-  border-radius: 8px; /* Rounded corners */
-  padding: 8px; /* Adjust padding as needed */
-  color: rgb(0, 0, 0); /* Example text color */
-}
+  border-radius: 8px; 
+  padding: 8px; 
+  color: rgb(0, 0, 0); } */

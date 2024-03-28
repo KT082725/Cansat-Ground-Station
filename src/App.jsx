@@ -1,14 +1,17 @@
-import "./App.css";
-import React, {useState} from "react";
-import GraphComponent from "./components/GrpahComponent";
-import ParentComponent from "./components/ParentComponent";
-import Navbar from "./components/Navbar/Navbar";
+import React from 'react';
+import NaviBar from './components/Navbar/NaviBar';
+
 
 const App = () => {
+  const handleDataReceived = (data) => {
+    // handle the data received from the serial port
+  };
+
   return (
-    <>
-      <Navbar/>
-    </>
+    <div>
+      <NaviBar onDataReceived={handleDataReceived} />
+      {/* other components */}
+    </div>
   );
 };
 
