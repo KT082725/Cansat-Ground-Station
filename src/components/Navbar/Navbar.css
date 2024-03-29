@@ -1,26 +1,32 @@
 /* Navbar.css */
-.Container {
-  background-color: #747ce6;
+.container {
+  background-color: #1a1a1a;
   color: white;
   padding: 10px;
   width: 100vw;
   position: fixed;
-  justify-content: flex-end;
+  justify-content: space-between;
   place-items: center;
   top: 0;
   display: flex;
 }
 
-.button-container{
+.logo-container {
+  max-height: 50px;
+  margin-right: auto;
+  margin-left: 15px;
+}
+
+.button-container {
   margin-right: 15px;
 }
 
-.baud-container{
+.baud-container {
   margin-right: 15px;
 }
 
 select {
-  border-radius: 8px; /* Rounded corners */
-  padding: 8px; /* Adjust padding as needed */
-  color: rgb(0, 0, 0); /* Example text color */
+  border-radius: 8px;
+  padding: 8px;
+  color: rgb(0, 0, 0);
 }
