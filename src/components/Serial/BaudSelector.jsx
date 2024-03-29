@@ -3,7 +3,6 @@ import React from 'react';
 const BaudSelector = ({ value, onChange }) => {
   return (
     <select value={value} onChange={onChange}>
-      <option value="">Select a baud rate</option>
       <option value={9600}>9600</option>
       <option value={19200}>19200</option>
       <option value={38400}>38400</option>
