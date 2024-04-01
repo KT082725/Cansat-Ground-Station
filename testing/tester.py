@@ -3,7 +3,7 @@ import random
 import time
 
 # Define the serial port and baud rate
-serial_port = 'COM1'  # Change this to match your serial port
+serial_port = "COM1"  # Change this to match your serial port
 baud_rate = 115200
 
 # Open the serial port

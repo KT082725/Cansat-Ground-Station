@@ -9,8 +9,8 @@ const Navbar = () => {
     setBaudRate(parseInt(event.target.value));
   };
   return (
-    <>
-      <div className="Container">
+      <div className="container">
+          <img className = "logo-container" src="gagan.png" />
         <div className="baud-container">
           <BaudSelector value={baudRate} onChange={handleSelectChange} />
         </div>
@@ -18,7 +18,6 @@ const Navbar = () => {
           <SerialDataReader baudRate={baudRate}/>
         </div>
       </div>
-    </>
   );
 };
 
