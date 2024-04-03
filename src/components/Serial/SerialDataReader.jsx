@@ -51,7 +51,7 @@ const SerialDataReader = ({ onDataReceived, baudRate }) => {
           console.error('No port found'); // Debug log
           return;
         }
-        await newPort.open({ baudRate: 115200 });
+        await newPort.open({ baudRate: baudRate });
         setPort(newPort);
         setIsConnected(true);
       } else {

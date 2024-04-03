@@ -7,6 +7,12 @@ const Navbar = () => {
   const [baudRate, setBaudRate] = useState(115200);
   const handleSelectChange = (event) => {
     setBaudRate(parseInt(event.target.value));
+  }
+  const [data, setData] = useState([]);
+
+  const handleDataReceived = (newData) => {
+    // Update the data state with the new data
+    setData(prevData => [...prevData, newData]);
   };
   return (
       <div className="container">
@@ -15,7 +21,8 @@ const Navbar = () => {
           <BaudSelector value={baudRate} onChange={handleSelectChange} />
         </div>
         <div className="button-container">
-          <SerialDataReader baudRate={baudRate}/>
+        <SerialDataReader baudRate={baudRate} onDataReceived={handleDataReceived}/>
+
         </div>
       </div>
   );
