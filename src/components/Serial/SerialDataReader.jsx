@@ -4,14 +4,15 @@ const SerialDataReader = ({ onDataReceived, baudRate }) => {
   const [port, setPort] = useState(null);
   const [isConnected, setIsConnected] = useState(false);
   const [data, setData] = useState(null);
- 
-
+  let keepReading = true;
+  let reader;
+  let closedPromise;
   
   const readData = async () => {
     console.log('readData called'); // Debug log
-    if (port && port.readable) {
+    while (port && port.readable && keepReading) {
       console.log('Port is readable'); // Debug log
-      const reader = port.readable.getReader();
+      reader = port.readable.getReader();
       try {
         while (true) {
           const { value, done } = await reader.read();
@@ -29,9 +30,8 @@ const SerialDataReader = ({ onDataReceived, baudRate }) => {
       } finally {
         reader.releaseLock();
       }
-    } else {
-      console.log('Port is not readable'); // Debug log
-    }
+    } 
+    await port.close();
   };
   
 
@@ -56,8 +56,11 @@ const SerialDataReader = ({ onDataReceived, baudRate }) => {
         setIsConnected(true);
       } else {
         if (port) {
-          await port.close();
-          setPort(null);
+          keepReading = false;
+          // Force reader.read() to resolve immediately and subsequently
+          // call reader.releaseLock() in the loop example above.
+          reader.cancel();
+          await closedPromise;
           setIsConnected(false);
         }
       }
@@ -68,7 +71,7 @@ const SerialDataReader = ({ onDataReceived, baudRate }) => {
   
   useEffect(() => {
     if (isConnected && port) {
-      readData();
+      closedPromise=readData();
     }
   }, [isConnected, port]);
   
